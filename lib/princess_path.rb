@@ -4,14 +4,16 @@ class PrincessPath
     Array.new(n) { Array.new(n,'-') }
   end
 
-  def get_four_corner_indexes
-    # return indexes of four corners
-    # first array, first & last index
-    # last array, first & last index
-  end
-
-  def place_princess
-    # randomly place princess('p') in one of four corners
+  def place_princess(grid, corner)
+    if corner == 1
+      grid[0][0] = 'p'
+    elsif corner == 2
+      grid[0][-1] = 'p'
+    elsif corner == 3
+      grid[-1][0] = 'p'
+    else
+      grid[-1][-1] = 'p'
+    end
   end
 
   def get_middle_index
