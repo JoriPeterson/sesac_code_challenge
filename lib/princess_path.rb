@@ -16,7 +16,11 @@ class PrincessPath
     end
   end
 
-  def get_middle_index
+  def get_middle_index(grid)
+    rows = grid.length
+    middle = rows / 2 + 1
+    index = middle - 1
+    grid[index][index] = 'm'
   end
 
   def locate_princess
