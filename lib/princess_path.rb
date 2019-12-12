@@ -23,9 +23,16 @@ class PrincessPath
     grid[index][index] = 'm'
   end
 
-  def locate_princess
-    # this function looks through the 4 corners
-    # to check for the 'p'
+  def locate_princess(grid)
+    if grid[0][0] == 'p'
+      return 1
+    elsif grid[0][-1] == 'p'
+      return 2
+    elsif grid[-1][0] == 'p'
+      return 3
+    else
+      return 4
+    end
   end
 
   def generate_path
