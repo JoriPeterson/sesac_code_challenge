@@ -17,25 +17,40 @@ class PrincessPath
   end
 
   def get_middle_index(grid)
-    rows = grid.length
-    middle = rows / 2 + 1
-    index = middle - 1
+    index = grid.length / 2
     grid[index][index] = 'm'
+    {row: index, column: index}
   end
 
   def locate_princess(grid)
     if grid[0][0] == 'p'
-      return 1
+      return {row: 0, column: 0}
     elsif grid[0][-1] == 'p'
-      return 2
+      return {row: 0, column: grid.length - 1}
     elsif grid[-1][0] == 'p'
-      return 3
+      return {row: -1, column: 0}
     else
-      return 4
+      return {row: -1, column: grid.length - 1}
     end
   end
 
-  def generate_path
+  def generate_path(grid)
+    location = locate_princess(grid)
+    start = get_middle_index(grid)
+    actions = []
+    until actions.length == grid.length - 1
+      if start[:row] > location[:row]
+        actions << "UP"
+      elsif start[:row] < location[:row]
+        actions << "DOWN"
+      end
+      if start[:column] > location[:column]
+        actions << "RIGHT"
+      elsif start[:column] > location[:column]
+        actions << "LEFT"
+      end
+    end
+    return actions
   end
 
   def displayPathtoPrincess#(n,grid)
