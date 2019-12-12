@@ -9,4 +9,13 @@ class PrincessPathTest < Minitest::Test
     assert_instance_of PrincessPath, path
   end
 
+  def test_it_creates_a_grid
+    path = PrincessPath.new
+    expected = [
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]]
+    assert_equal expected, path.create_grid(3)
+  end
+
 end
