@@ -30,4 +30,12 @@ class PrincessPathTest < Minitest::Test
     assert_equal "p", grid_2[-1][0]
   end
 
+  def test_it_can_get_middle_index
+    grid = @path.create_grid(3)
+    assert_equal 'm', @path.get_middle_index(grid)
+
+    grid_2 = @path.create_grid(41)
+    assert_equal 'm', @path.get_middle_index(grid_2)
+  end
+
 end
