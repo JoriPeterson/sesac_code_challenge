@@ -28,18 +28,31 @@ class PrincessPathTest < Minitest::Test
     grid_2 = @path.create_grid(5)
     @path.place_princess(grid_2, 3)
     assert_equal "p", grid_2[-1][0]
+
+    @path.place_princess(@grid, "hello")
+    assert_equal "p", @grid[-1][-1]
   end
 
-  def test_it_can_get_middle_index
-    assert_equal 'm', @path.get_middle_index(@grid)
+  def test_it_gets_middle_index
+    expected = {row: 1, column: 1}
+    assert_equal expected, @path.get_middle_index(@grid)
+    assert_equal 'm', @grid[1][1]
 
     grid_2 = @path.create_grid(41)
-    assert_equal 'm', @path.get_middle_index(grid_2)
+    expected = {row: 20, column: 20}
+    assert_equal expected, @path.get_middle_index(grid_2)
+    assert_equal 'm', grid_2[20][20]
   end
 
-  def test_it_can_locate_princess
+  def test_it_locates_princess
     @path.place_princess(@grid, 1)
-    assert_equal 1, @path.locate_princess(@grid)
+    expected = {row: 0, column: 0}
+    assert_equal expected, @path.locate_princess(@grid)
+  end
+
+  def test_it_generates_path
+    @path.place_princess(@grid, 1)
+    assert_equal ["UP", "RIGHT"], @path.generate_path(@grid)
   end
 
 end
