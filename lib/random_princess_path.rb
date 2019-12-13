@@ -1,24 +1,25 @@
 class RandomPrincessPath
 
   # code for testing in minitest
-  def create_grid(n)
-    Array.new(n) { '---'}
-  end
 
   def place_princess(grid)
-    row = rand(1..grid.length)
-    column = rand(1..grid.length)
+    max = grid.length - 1
+    row = rand(0..max)
+    column = rand(0..max)
     grid[row][column] = 'p'
   end
 
   def place_mario(grid)
-    # row = rand(1..grid.length)
-    # column = rand(1..grid.length)
-    until grid[row][column] == '-'
-      row = rand(1..grid.length)
-      column = rand(1..grid.length)
+    max = grid.length - 1
+    potential_row = rand(0..max)
+    potential_column = rand(0..max)
+    row = 0
+    column = 0
+    until grid[potential_row][potential_column] == '-'
+      row = potential_row
+      column = potential_column
     end
-    grid[row][column] = 'm'
+  grid[row][column] = 'm'
   end
 
   # code for hackerrank is below:
@@ -29,7 +30,7 @@ class RandomPrincessPath
     return actions.join("\n")
   end
 
-  def find_starting_point(grid)
+  def find_character(grid, character)
     # find (index) starting point of mario
     # create helper method(find(m/p, grid))?
     # Use enumerable to iterate over grid...
@@ -44,10 +45,6 @@ class RandomPrincessPath
       end
     end
     { row: row_index, column: column_index}
-  end
-
-  def locate_princess(grid)
-    # find index of princess on grid
   end
 
   def generate_path(grid)
