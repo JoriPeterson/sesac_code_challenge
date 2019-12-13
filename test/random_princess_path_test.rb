@@ -24,8 +24,15 @@ class RandomPrincessPathTest < Minitest::Test
     assert true, @grid.include?('m')
   end
 
-  def test_it_finds_character_on_grid
-    @random_path.place_princess(@grid)
-    @random_path.place_mario(@grid)
+  def test_it_finds_mario_on_grid
+    mario = @random_path.place_mario(@grid)
+    expected = { row: mario[:row], column: mario[:column] }
+    assert_equal expected, @random_path.find_character(@grid, 'm')
+  end
+
+  def test_it_finds_princess_on_grid
+    princess = @random_path.place_princess(@grid)
+    expected = { row: princess[:row], column: princess[:column] }
+    assert_equal expected, @random_path.find_character(@grid, 'p')
   end
 end
