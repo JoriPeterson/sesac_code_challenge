@@ -7,14 +7,14 @@
 ```
 Princess Peach is trapped in one of the four corners of a square grid. You are in the center of the grid and can move one step at a time in any of the four directions. Can you rescue the princess?
 ```
-[Click here to see the problem on HackRank](https://www.hackerrank.com/challenges/saveprincess/problem)
+[Click here to see the problem on HackerRank](https://www.hackerrank.com/challenges/saveprincess/problem)
 
 ### Problem 2
 
 ```
 In this version of "Bot saves princess", Princess Peach and bot's position are randomly set. Can you save the princess?
 ```
-[Click here to see the problem on HackRank](https://www.hackerrank.com/challenges/saveprincess2)
+[Click here to see the problem on HackerRank](https://www.hackerrank.com/challenges/saveprincess2)
 
 ## Setup
 
@@ -40,7 +40,7 @@ Copy and paste the code below the comment `code for hackerrank is below:` into t
 Testing for this repo is done in `minitest`.
 - To run the test suite, simply run `$ rake` from your command line.
 - To run an individual test file, run `$ ruby test/<file_name>` from your command line.
-- To open the coverage report for testing, run `open coverage/index.html` from your command line and the coverage report will open in your web browser.
+- To open the coverage report for testing, run `$ open coverage/index.html` from your command line and the coverage report will open in your web browser.
 
 ## Versions
 
