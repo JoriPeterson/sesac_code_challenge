@@ -7,6 +7,7 @@ class RandomPrincessPath
     row = rand(0..max)
     column = rand(0..max)
     grid[row][column] = 'p'
+    { row: row, column: column}
   end
 
   def place_mario(grid)
@@ -20,25 +21,22 @@ class RandomPrincessPath
       column = potential_column
     end
   grid[row][column] = 'm'
+  { row: row, column: column}
   end
 
   # code for hackerrank is below:
 
   def displayPathtoPrincess(n,grid)
-    actions = generate_path(grid_array)
+    actions = generate_path(grid)
     puts actions.join("\n")
     return actions.join("\n")
   end
 
   def find_character(grid, character)
-    # find (index) starting point of mario
-    # create helper method(find(m/p, grid))?
-    # Use enumerable to iterate over grid...
-    # For each row look at string, get index if m or p
     column_index = 0
     row_index = 0
     grid.each_with_index do |row, i|
-      column_index = row.index('m')
+      column_index = row.index(character)
       if !column_index.nil?
         row_index = i
         break
