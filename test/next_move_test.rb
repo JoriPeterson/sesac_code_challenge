@@ -65,4 +65,34 @@ class NextMoveTest < Minitest::Test
     result = @move.nextMove(@grid.length,mario[:row],mario[:column],@grid)
     assert expected.include?(result)
   end
+
+  def test_grid_changes
+    grid = [
+    "m--",
+    "---",
+    "--p"]
+
+    expected = [
+      "---",
+      "m--",
+      "--p"]
+
+    @move.nextMove(grid.length,0,0,grid)
+    assert_equal expected, grid
+  end
+
+  def test_grid_changes_2
+    grid = [
+    "p--",
+    "---",
+    "--m"]
+
+    expected = [
+      "p--",
+      "--m",
+      "---"]
+
+    @move.nextMove(grid.length,2,2,grid)
+    assert_equal expected, grid
+  end
 end
