@@ -15,9 +15,9 @@ class PrincessPathTest < Minitest::Test
 
   def test_it_creates_a_grid
     expected = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"]]
+    "---",
+    "---",
+    "---"]
     assert_equal expected, @path.create_grid(3)
   end
 
@@ -36,12 +36,10 @@ class PrincessPathTest < Minitest::Test
   def test_it_gets_middle_index
     expected = {row: 1, column: 1}
     assert_equal expected, @path.get_middle_index(@grid)
-    assert_equal 'm', @grid[1][1]
 
     grid_2 = @path.create_grid(41)
     expected = {row: 20, column: 20}
     assert_equal expected, @path.get_middle_index(grid_2)
-    assert_equal 'm', grid_2[20][20]
   end
 
   def test_it_locates_princess
@@ -55,4 +53,8 @@ class PrincessPathTest < Minitest::Test
     assert_equal ["UP", "RIGHT"], @path.generate_path(@grid)
   end
 
+  def test_is_displays_path_to_princess
+    @path.place_princess(@grid, 1)
+    assert_equal "UP\nRIGHT", @path.displayPathtoPrincess(3, @grid)
+  end
 end
