@@ -1,7 +1,8 @@
 class PrincessPath
 
+  # code for testing in minitest
   def create_grid(n)
-    Array.new(n) { Array.new(n,'-') }
+    Array.new(n) { '---'}
   end
 
   def place_princess(grid, corner)
@@ -16,9 +17,19 @@ class PrincessPath
     end
   end
 
+  # code for hackerrank is below:
+
+  def displayPathtoPrincess(n,grid)
+    grid_array = []
+    grid.each do |row|
+      grid_array << row.chars
+    end
+    actions = generate_path(grid_array)
+    return actions.join("\n")
+  end
+
   def get_middle_index(grid)
     index = grid.length / 2
-    grid[index][index] = 'm'
     {row: index, column: index}
   end
 
@@ -52,10 +63,4 @@ class PrincessPath
     end
     return actions
   end
-
-  def displayPathtoPrincess#(n,grid)
-    return ""
-  end
-
-  #displayPathtoPrincess(n,grid)
 end
