@@ -26,6 +26,7 @@ class PrincessPathTest < Minitest::Test
   def test_it_places_princess_in_a_corner
     @path.place_princess(@grid, 1)
     assert_equal "p", @grid[0][0]
+    refute @grid[0][3] == "p"
 
     grid_2 = @path.create_grid(5)
     @path.place_princess(grid_2, 3)
