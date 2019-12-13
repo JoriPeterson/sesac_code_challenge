@@ -20,11 +20,8 @@ class PrincessPath
   # code for hackerrank is below:
 
   def displayPathtoPrincess(n,grid)
-    grid_array = []
-    grid.each do |row|
-      grid_array << row.chars
-    end
-    actions = generate_path(grid_array)
+    actions = generate_path(grid)
+    puts actions.join("\n")
     return actions.join("\n")
   end
 
@@ -34,14 +31,15 @@ class PrincessPath
   end
 
   def locate_princess(grid)
+    max = grid.length - 1
     if grid[0][0] == 'p'
       return {row: 0, column: 0}
     elsif grid[0][-1] == 'p'
-      return {row: 0, column: grid.length - 1}
+      return {row: 0, column: max}
     elsif grid[-1][0] == 'p'
-      return {row: -1, column: 0}
+      return {row: max, column: 0}
     else
-      return {row: -1, column: grid.length - 1}
+      return {row: max, column: max}
     end
   end
 
@@ -49,16 +47,16 @@ class PrincessPath
     location = locate_princess(grid)
     start = get_middle_index(grid)
     actions = []
-    until actions.length == grid.length - 1
+    until actions.length >= grid.length - 1
       if start[:row] > location[:row]
         actions << "UP"
       elsif start[:row] < location[:row]
         actions << "DOWN"
       end
       if start[:column] > location[:column]
-        actions << "RIGHT"
-      elsif start[:column] > location[:column]
         actions << "LEFT"
+      elsif start[:column] < location[:column]
+        actions << "RIGHT"
       end
     end
     return actions
