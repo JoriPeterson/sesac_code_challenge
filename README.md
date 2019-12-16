@@ -40,7 +40,7 @@ Copy and paste the code below the comment `code for hackerrank is below:` into t
 Testing for this repo is done in `Minitest`.
 - To run the test suite, simply run `$ rake` from your command line.
 - To run an individual test file, run `$ ruby test/<file_name>` from your command line.
-- To open the coverage report for testing, run `$ open coverage/index.html` from your command line and the coverage report will open in your web browser.
+- To open the coverage report for testing, first run `$ rake`, then run `$ open coverage/index.html` from your command line and the coverage report will open in your web browser.
 
 ## Versions
 
